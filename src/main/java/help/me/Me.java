@@ -27,9 +27,6 @@ public final class Me extends JavaPlugin {
 
     public void loadConfig() {
         getConfig().options().copyDefaults(true);
-        if (getConfig().get("Numbers.counter") == null) {
-            getConfig().set("Numbers.counter", 1);
-        }
         saveConfig();
     }
 }
