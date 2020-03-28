@@ -9,13 +9,17 @@ public final class Me extends JavaPlugin {
         return instance;
     }
     killEffects killEffects = new killEffects();
+    LootBoxes lootBoxes = new LootBoxes();
 
     @Override
     public void onEnable() {
         this.getServer().getPluginManager().registerEvents(killEffects, this);
+        this.getServer().getPluginManager().registerEvents(lootBoxes, this);
         getLogger().info("PLEASE WORK");
         instance = this;
         getCommand("ke").setExecutor(new keCmd());
+        getCommand("keys").setExecutor(new keysCmd());
+        getCommand("lootbox").setExecutor(new lootboxCmd());
         loadConfig();
 
     }

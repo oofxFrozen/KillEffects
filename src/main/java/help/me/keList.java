@@ -52,6 +52,7 @@ public class keList {
         if (randomColor == 1) return 255;
         else return 0;
     }
+
     public void playKillEffect (Player player, Location l, Entity killed) {
         if (getKillEffect(player).equals("RAINBOW")) {
             for (int i = 0; i < 25; i++)
