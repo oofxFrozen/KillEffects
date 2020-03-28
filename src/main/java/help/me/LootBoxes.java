@@ -29,7 +29,7 @@ public class LootBoxes implements Listener {
                 && getDelay(location)) {
             startGacha(event.getPlayer(), location);
             setDelay(location);
-            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 90);
+            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 91);
         }
     }
 
