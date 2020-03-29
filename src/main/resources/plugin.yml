@@ -1,9 +1,0 @@
-name: Me
-version: ${project.version}
-main: help.me.Me
-authors: [oofxFrozen]
-description: sonic is gay
-commands:
-  ke:
-    description: Choose kill effect.
-    usage: /ke
