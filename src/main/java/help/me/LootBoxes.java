@@ -30,7 +30,7 @@ public class LootBoxes implements Listener {
             event.setCancelled(true);
             startGacha(event.getPlayer(), location);
             setDelay(location);
-            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 120);
+            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 60);
         }
     }
 
@@ -57,8 +57,8 @@ public class LootBoxes implements Listener {
             Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> {
                 armorStand.setCustomNameVisible(false);
                 armorStand.remove();
-            }, 43);
-        }, 77);
+            }, 40);
+        }, 60);
     }
 
     public String getGachedItem (int id) {
