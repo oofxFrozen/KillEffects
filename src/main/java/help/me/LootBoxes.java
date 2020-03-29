@@ -1,7 +1,6 @@
 package help.me;
 
 import org.bukkit.*;
-import org.bukkit.block.Chest;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
