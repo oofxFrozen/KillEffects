@@ -1,0 +1,15 @@
+name: Me
+version: ${project.version}
+main: help.me.Me
+authors: [oofxFrozen]
+description: sonic is gay
+commands:
+  ke:
+    description: Choose kill effect.
+    usage: /ke
+  keys:
+    description: something with keys
+    usage: /keys add/set
+  lootbox:
+    description: spawns lootbox
+    usage: /lootbox
