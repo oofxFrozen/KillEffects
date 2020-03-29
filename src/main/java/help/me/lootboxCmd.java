@@ -16,10 +16,10 @@ public class lootboxCmd implements CommandExecutor {
         if (!(sender instanceof Player)) return true;
         Player player = (Player) sender;
         Location location = player.getLocation();
-        location.getBlock().setType(Material.CHEST);
-        Block lootbox = location.getBlock();
+        Block lootbox = location.getWorld().getBlockAt(location);
+        lootbox.setType(Material.CHEST);
         lootbox.setMetadata("lootbox", new FixedMetadataValue(Me.getInstance(), "lootbox"));
-        Me.getInstance().getConfig().set("Lootboxes." + location + ".delay", true);
+        Me.getInstance().getConfig().set("Lootboxes." + lootbox.getLocation() + ".delay", true);
         return true;
     }
 }

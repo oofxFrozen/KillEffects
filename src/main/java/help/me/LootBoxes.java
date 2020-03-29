@@ -27,9 +27,10 @@ public class LootBoxes implements Listener {
                 && event.getAction() == Action.RIGHT_CLICK_BLOCK
                 && event.getClickedBlock().hasMetadata("lootbox")
                 && getDelay(location)) {
+            event.setCancelled(true);
             startGacha(event.getPlayer(), location);
             setDelay(location);
-            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 91);
+            Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> setDelay(event.getClickedBlock().getLocation()), 120);
         }
     }
 
@@ -37,16 +38,16 @@ public class LootBoxes implements Listener {
     public void startGacha (Player player, Location location) {
         double time = 40;
         float pitch = 1f;
-        while (time != 2) {
+        while ((int) time != 2) {
             float finalPitch = pitch;
             Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> location.getWorld().playSound(location, Sound.BLOCK_STONE_BUTTON_CLICK_ON, 1, finalPitch), (long) time);
-            time = time/2;
-            pitch = pitch + 0.2f;
+            time = time/1.2;
+            pitch = pitch + 0.1f;
         }
         Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> {
             location.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, location, 0);
             location.getWorld().playSound(location, Sound.ENTITY_GENERIC_EXPLODE, 0.5f, 1.3f);
-            ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+            ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location.clone().add(0.5, 1, 0.5), EntityType.ARMOR_STAND);
             armorStand.setInvulnerable(true);
             armorStand.setMarker(true);
             armorStand.setGravity(false);
@@ -56,7 +57,7 @@ public class LootBoxes implements Listener {
             Bukkit.getScheduler().runTaskLater(Me.getInstance(), () -> {
                 armorStand.setCustomNameVisible(false);
                 armorStand.remove();
-            }, 13);
+            }, 43);
         }, 77);
     }
 
